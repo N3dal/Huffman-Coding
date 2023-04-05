@@ -151,6 +151,9 @@ def message_chars_probability(message: str):
             find the probability for each character in a give string;
     """
 
+    assert isinstance(
+        message, str), f"message must be a str type not {type(message)}"
+
     message_length = len(message)
 
     return {char: (message.count(char) / message_length) for char in set(message)}
