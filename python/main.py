@@ -33,7 +33,7 @@ def find_binary_source_entropy(message: str):
 
     symbol_count = len(message)
 
-    symbol_probabilities = message_chars_probability(message)
+    symbol_probabilities = message_symbols_probability(message)
 
     return sum((symbol_probabilities[char] * math.log2(1/symbol_probabilities[char])) for char in set(message))
 
@@ -83,9 +83,10 @@ def find_message_redundancy(message: str):
 def main():
 
     # print(find_binary_source_entropy("AAAAABBCCD"))
-    print(find_binary_source_entropy(TEST_MESSAGE))
-    print(find_max_binary_source_entropy(TEST_MESSAGE))
-    print(find_message_redundancy(TEST_MESSAGE))
+    # print(find_binary_source_entropy(TEST_ME`SSAGE))
+    # print(find_max_binary_source_entropy(TEST_MESSAGE))
+    # print(find_message_redundancy(TEST_MESSAGE))
+    print(message_symbols_probability(TEST_MESSAGE))
 
 
 if __name__ == "__main__":

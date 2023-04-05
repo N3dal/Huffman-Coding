@@ -139,10 +139,10 @@ def clear():
     return None
 
 
-def message_chars_probability(message: str):
+def message_symbols_probability(message: str):
     """
         :ARGS:  
-            message:str => the message we want to count chars probability.
+            message:str => the message we want to count symbols probability.
 
         :RETURNS:
             return dict contain each char with its probability;
