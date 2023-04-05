@@ -8,7 +8,7 @@ import math
 
 OS_NAME = name
 
-TEST_STRING = """
+TEST_MESSAGE = """
 uV2nUdR8plkiNEh
 fcYWzRVDR8uVkJA
 X7SVsVlu9hDe0HB
