@@ -154,6 +154,6 @@ def message_chars_probability(message: str):
     assert isinstance(
         message, str), f"message must be a str type not {type(message)}"
 
-    message_length = len(message)
+    symbol_count = len(message)
 
-    return {char: (message.count(char) / message_length) for char in set(message)}
+    return {symbol: (message.count(symbol) / symbol_count) for symbol in set(message)}
