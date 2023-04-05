@@ -50,6 +50,9 @@ def find_max_binary_source_entropy(message: str):
             find the max binary entropy for the given message;
     """
 
+    assert isinstance(
+        message, str), f"message must be a str type not {type(message)}"
+
     symbol_count = len(message)
 
     # approximate the symbol count to the greater nearest 2^n;
@@ -60,11 +63,29 @@ def find_max_binary_source_entropy(message: str):
     return int(math.log2(symbol_count))
 
 
+def find_message_redundancy(message: str):
+    """
+        :ARGS:
+            message:str => message we want to find the redundancy for it;
+
+        :RETURNS:
+            return float;
+
+        :INFO:
+            find the redundancy for the given message, and its defined as:
+                "the difference between the max binary entropy for the message and,
+                 the actual binary entropy for the message"
+    """
+
+    return find_max_binary_source_entropy(message) - find_binary_source_entropy(message)
+
+
 def main():
 
     # print(find_binary_source_entropy("AAAAABBCCD"))
     print(find_binary_source_entropy(TEST_MESSAGE))
     print(find_max_binary_source_entropy(TEST_MESSAGE))
+    print(find_message_redundancy(TEST_MESSAGE))
 
 
 if __name__ == "__main__":
