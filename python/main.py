@@ -13,6 +13,7 @@
 # -----------------------------------------------------------------
 
 from utils import *
+import math
 
 
 def find_binary_source_entropy(message: str):
@@ -56,9 +57,7 @@ def find_max_binary_source_entropy(message: str):
     symbol_count = len(message)
 
     # approximate the symbol count to the greater nearest 2^n;
-
-    while math.log2(symbol_count) % 1 > 0:
-        symbol_count += 1
+    symbol_count = math.ceil(math.log2(symbol_count))
 
     return int(math.log2(symbol_count))
 
@@ -86,7 +85,11 @@ def main():
     # print(find_binary_source_entropy(TEST_ME`SSAGE))
     # print(find_max_binary_source_entropy(TEST_MESSAGE))
     # print(find_message_redundancy(TEST_MESSAGE))
-    print(message_symbols_probability(TEST_MESSAGE))
+
+    symbols_prob = message_symbols_probability(TEST_MESSAGE)
+
+    for key in sorted(symbols_prob, key=lambda k: symbols_prob[k]):
+        print(f"'{key}' => {round(symbols_prob[key] * len(TEST_MESSAGE))}")
 
 
 if __name__ == "__main__":
