@@ -88,9 +88,6 @@ def main():
 
     symbols_prob = message_symbols_probability(TEST_MESSAGE)
 
-    for key in sorted(symbols_prob, key=lambda k: symbols_prob[k]):
-        print(f"'{key}' => {round(symbols_prob[key] * len(TEST_MESSAGE))}")
-
 
 if __name__ == "__main__":
     main()
