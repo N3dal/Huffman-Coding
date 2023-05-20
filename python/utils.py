@@ -112,6 +112,41 @@ dpJo7y0Xkc0G83P
 """
 
 
+class Node:
+    """
+        :ARGS:
+            left=None => the left leaf or node;
+            right=None => the right leaf or node;
+
+        :INFO:
+            the Node for huffman tree;
+
+    """
+    
+    def __init__(self, left=None, right=None):
+        self.left = left
+        self.right = right
+        
+    def children(self):
+        """
+        :ARGS:
+            None;
+
+        :RETURNS:
+            return Tuple;
+
+        :INFO:
+            return the children for this node;
+        """
+        
+        return (self.left, self.right)
+    
+    def __str__(self):
+        return f"{self.left}___{self.right}"
+
+    def __repr__(self):
+        return self.__str__()
+
 def clear():
     """
         :ARGS:
