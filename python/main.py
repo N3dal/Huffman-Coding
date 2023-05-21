@@ -149,7 +149,8 @@ def main():
 
     
     # TEST_MESSAGE = "A" * 5 + "B" * 6 + "C" * 9 + "D" * 12
-
+    # TEST_MESSAGE = "A" * 10 + "B" * 1000
+    
     characters_frequency = message_symbols_frequency(TEST_MESSAGE)
     
     sorted_char_dict = sorted(characters_frequency, key=lambda k: characters_frequency[k], reverse=False)
@@ -190,7 +191,9 @@ def main():
     
     decoded_text = decoding(codes, encoded_text)
     
-    print(decoded_text == TEST_MESSAGE)
+    print(encoded_text)
+    print("\n", "#" * 150, "\n")
+    print(decoded_text)
         
     
     
