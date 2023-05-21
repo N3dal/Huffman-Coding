@@ -14,6 +14,7 @@
 
 from utils import *
 import math
+from time import sleep
 
 
 def find_binary_source_entropy(message: str):
@@ -78,16 +79,83 @@ def find_message_redundancy(message: str):
 
     return find_max_binary_source_entropy(message) - find_binary_source_entropy(message)
 
+def find_coding(node:Node, codes:dict=None, code=""):
+    """
+        :ARGS:
+
+        :RETURNS:
+            return list;
+
+        :INFO:
+
+    """
+    
+    if codes is None:
+        codes = dict()
+    
+    if node is None:
+        return None
+    
+    code += node.code
+    
+    if not node.symbol is None:
+        codes[node.symbol] = code
+    
+    find_coding(node.left, codes, code)
+    find_coding(node.right, codes, code)
+    
+    return codes
+
 
 def main():
 
-    # print(find_binary_source_entropy("AAAAABBCCD"))
-    # print(find_binary_source_entropy(TEST_ME`SSAGE))
-    # print(find_max_binary_source_entropy(TEST_MESSAGE))
-    # print(find_message_redundancy(TEST_MESSAGE))
+    
+    # TEST_MESSAGE = "A" * 5 + "B" * 6 + "C" * 9 + "D" * 12
 
-    symbols_prob = message_symbols_probability(TEST_MESSAGE)
+    characters_frequency = message_symbols_frequency(TEST_MESSAGE)
+    
+    sorted_char_dict = sorted(characters_frequency, key=lambda k: characters_frequency[k], reverse=False)
+    
+    sorted_chars = {key: characters_frequency[key] for key in sorted_char_dict}
+    
+    
+    nodes = [Node(symbol=char, frequency=freq) for char, freq in sorted_chars.items()]
+    
+    # print(nodes)
+    while len(nodes) > 1:
+        
+        new_node = Node()
+        
+        nodes = sorted(nodes, key=lambda node: node.frequency)
+        
+        smaller_node1, smaller_node2 = nodes[0:2]
+        
+        new_node.frequency = smaller_node1.frequency + smaller_node2.frequency
+        
+        smaller_node1.code = "1"
+        smaller_node2.code = "0"
+        
+        new_node.left = smaller_node1
+        new_node.right = smaller_node2
+        
+        nodes[0:2] = [new_node]
 
+    
+    
+    root = nodes[0]
+    
+    
+    # code = root.right.code + root.right.right.code + root.right.right.right.code
+    codes = find_coding(root)
+    
+    encoded_text = "".join(codes[char] for char in TEST_MESSAGE)
+    
+    print(encoded_text)
+        
+    
+    
+    
+ 
 
 if __name__ == "__main__":
     main()
