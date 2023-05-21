@@ -79,7 +79,7 @@ def find_message_redundancy(message: str):
 
     return find_max_binary_source_entropy(message) - find_binary_source_entropy(message)
 
-def find_coding(node:Node, codes:dict=None, code=""):
+def encoding(node:Node, codes:dict=None, code=""):
     """
         :ARGS:
 
@@ -101,12 +101,50 @@ def find_coding(node:Node, codes:dict=None, code=""):
     if not node.symbol is None:
         codes[node.symbol] = code
     
-    find_coding(node.left, codes, code)
-    find_coding(node.right, codes, code)
+    encoding(node.left, codes, code)
+    encoding(node.right, codes, code)
     
     return codes
 
 
+def decoding(decoding_dictionary:dict, encoded_msg:str):
+    """
+        :ARGS:
+
+        :RETURNS:
+            return list;
+
+        :INFO:
+
+    """
+    
+    decoded_msg = ""
+    
+    
+    temp_code = ""
+    
+    assert isinstance(decoding_dictionary, dict), f"decoding_dictionary must be a dict type!"
+    assert isinstance(encoded_msg, str), f"encoded_msg must be a str type!"
+    
+    # now flip the keys and values of the decoding dictionary;
+    flipped_decoding_dictionary = {value: key for key, value in decoding_dictionary.items()}
+    
+    encoded_msg = list(encoded_msg)
+    
+    while encoded_msg:
+        temp_code += encoded_msg.pop(0)
+        
+        if temp_code in flipped_decoding_dictionary:
+            decoded_msg += flipped_decoding_dictionary[temp_code]
+            temp_code = ""
+            
+    
+    return decoded_msg
+    
+    
+    
+    
+    
 def main():
 
     
@@ -146,11 +184,13 @@ def main():
     
     
     # code = root.right.code + root.right.right.code + root.right.right.right.code
-    codes = find_coding(root)
+    codes = encoding(root)
     
     encoded_text = "".join(codes[char] for char in TEST_MESSAGE)
     
-    print(encoded_text)
+    decoded_text = decoding(codes, encoded_text)
+    
+    print(decoded_text == TEST_MESSAGE)
         
     
     
