@@ -217,7 +217,6 @@ class HuffmanCompressor:
         Docstring;
     """
     
-    
     def __init__(self):
         pass
     
@@ -308,6 +307,7 @@ class HuffmanCompressor:
         
         return decoded_msg
     
+    @staticmethod
     def find_compression_percentage(original_msg:str, encoded_msg:str):
         
         percentage = round(100 - len(encoded_msg) / (len(original_msg) * 8) * 100, 2)
@@ -317,7 +317,7 @@ class HuffmanCompressor:
     
 def main():
     
-    msg = Message(TEST_MESSAGE_2)
+    msg = Message(TEST_MESSAGE + TEST_MESSAGE_2 + TEST_MESSAGE_3)
     
     tree = HuffmanTree(msg)
     
@@ -331,7 +331,15 @@ def main():
 
     decoded_text = compressor.decode(encoding_map, encoded_text)
 
-    print(decoded_text == TEST_MESSAGE_2)
+    print(decoded_text == msg.text)
+    print(compressor.find_compression_percentage(msg.text, encoded_text))
+    
+    # byte_array = bytearray(list(map(int, encoded_text)))
+    
+    # with open(r"./output.bin", "wb") as file:
+    #     file.write(byte_array)
+    
+    # print(byte_array)
 
 
     
