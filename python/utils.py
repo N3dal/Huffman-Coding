@@ -4,7 +4,8 @@
 
 from os import system
 from os import name
-import math
+import string
+from random import choice
 
 OS_NAME = name
 
@@ -216,116 +217,25 @@ dpJo7y0Xkc0G83P
 """ * 10
 
 TEST_MESSAGE_3 = """
-INFO(1)                      User Commands                     INFO(1)
+Gay one the what walk then she. Demesne mention promise you justice arrived way. Or increasing to in especially inquietude companions acceptance admiration. Outweigh it families distance wandered ye an. Mr unsatiable at literature connection favourable. We neglected mr perfectly continual dependent.
 
-NAME
-       info - read Info documents
+Lose eyes get fat shew. Winter can indeed letter oppose way change tended now. So is improve my charmed picture exposed adapted demands. Received had end produced prepared diverted strictly off man branched. Known ye money so large decay voice there to. Preserved be mr cordially incommode as an. He doors quick child an point at. Had share vexed front least style off why him.
 
-SYNOPSIS
-       info [OPTION]... [MENU-ITEM...]
+Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people so basket ladies window expect. Supply as so period it enough income he genius. Themselves acceptance bed sympathize get dissimilar way admiration son. Design for are edward regret met lovers. This are calm case roof and.
 
-DESCRIPTION
-       Read documentation in Info format.
+Manor we shall merit by chief wound no or would. Oh towards between subject passage sending mention or it. Sight happy do burst fruit to woody begin at. Assurance perpetual he in oh determine as. The year paid met him does eyes same. Own marianne improved sociable not out. Thing do sight blush mr an. Celebrated am announcing delightful remarkably we in literature it solicitude. Design use say piqued any gay supply. Front sex match vexed her those great.
 
-   Frequently-used options:
-       -a, --all
-              use all matching manuals
+Believing neglected so so allowance existence departure in. In design active temper be uneasy. Thirty for remove plenty regard you summer though. He preference connection astonished on of ye. Partiality on or continuing in particular principles as. Do believing oh disposing to supported allowance we.
 
-       -k, --apropos=STRING
-              look up STRING in all indices of all manuals
+Needed feebly dining oh talked wisdom oppose at. Applauded use attempted strangers now are middleton concluded had. It is tried ﻿no added purse shall no on truth. Pleased anxious or as in by viewing forbade minutes prevent. Too leave had those get being led weeks blind. Had men rose from down lady able. Its son him ferrars proceed six parlors. Her say projection age announcing decisively men. Few gay sir those green men timed downs widow chief. Prevailed remainder may propriety can and.
 
-       -d, --directory=DIR
-              add DIR to INFOPATH
+Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered. Continual say suspicion provision you neglected sir curiosity unwilling. Simplicity end themselves increasing led day sympathize yet. General windows effects not are drawing man garrets. Common indeed garden you his ladies out yet. Preference imprudence contrasted to remarkably in on. Taken now you him trees tears any. Her object giving end sister except oppose.
 
-       -f, --file=MANUAL
-              specify Info manual to visit
+Unpleasant nor diminution excellence apartments imprudence the met new. Draw part them he an to he roof only. Music leave say doors him. Tore bred form if sigh case as do. Staying he no looking if do opinion. Sentiments way understood end partiality and his.
 
-       -h, --help
-              display this help and exit
+Talking chamber as shewing an it minutes. Trees fully of blind do. Exquisite favourite at do extensive listening. Improve up musical welcome he. Gay attended vicinity prepared now diverted. Esteems it ye sending reached as. Longer lively her design settle tastes advice mrs off who.
 
-       --index-search=STRING
-              go to node pointed by index entry STRING
-
-       -n, --node=NODENAME
-              specify nodes in first visited Info file
-
-       -o, --output=FILE
-              output selected nodes to FILE
-
-       -O, --show-options, --usage
-              go to command-line options node
-
-       --subnodes
-              recursively output menu items
-
-       -v, --variable VAR=VALUE
-              assign VALUE to Info variable VAR
-
-       --version
-              display version information and exit
-
-       -w, --where, --location
-              print physical location of Info file
-
-       The first non-option argument, if present, is the menu entry to
-       start from; it is searched for in all  'dir'  files  along  IN‐
-       FOPATH.   If it is not present, info merges all 'dir' files and
-       shows the result.  Any remaining arguments are treated  as  the
-       names of menu items relative to the initial node visited.
-
-       For a summary of key bindings, type H within Info.
-
-EXAMPLES
-       info   show top-level dir menu
-
-       info info-stnd
-              show the manual for this Info program
-
-       info emacs
-              start at emacs node from top-level dir
-
-       info emacs buffers
-              select buffers menu entry in emacs manual
-
-       info emacs -n Files
-              start at Files node within emacs manual
-
-       info '(emacs)Files'
-              alternative way to start at Files node
-
-       info --show-options emacs
-              start at node with emacs' command line options
-
-       info --subnodes -o out.txt emacs
-              dump entire emacs manual to out.txt
-
-       info -f ./foo.info
-              show file ./foo.info, not searching dir
-
-REPORTING BUGS
-       Email bug reports to bug-texinfo@gnu.org, general questions and
-       discussion to help-texinfo@gnu.org.
-       Texinfo home page: http://www.gnu.org/software/texinfo/
-
-COPYRIGHT
-       Copyright  ©  2019  Free  Software  Foundation,  Inc.   License
-       GPLv3+:   GNU   GPL  version  3  or  later  <http://gnu.org/li‐
-       censes/gpl.html>
-       This is free software: you are free to change and  redistribute
-       it.  There is NO WARRANTY, to the extent permitted by law.
-
-SEE ALSO
-       The full documentation for info is maintained as a Texinfo man‐
-       ual.  If the info program is properly installed at  your  site,
-       the command
-
-              info info
-
-       should  give  you  access  to the complete manual.  (Or, if you
-       have Emacs, M-x info will lead to the manual.)
-
-info 6.7                    September 2019                     INFO(1)
-
+When be draw drew ye. Defective in do recommend suffering. House it seven in spoil tiled court. Sister others marked fat missed did out use. Alteration possession dispatched collecting instrument travelling he or on. Snug give made at spot or late that mr.
 
 """
 
@@ -356,3 +266,20 @@ def clear():
 
     return None
 
+
+
+def generate_random_text(length:int=1000):
+    """
+        Docstring;
+    """
+    
+    text = ""
+    
+    for _ in range(length):
+        text += choice(string.ascii_letters + string.digits)
+    
+    
+    return text
+    
+    
+    

@@ -316,8 +316,11 @@ class HuffmanCompressor:
         
     
 def main():
+    # random_text = generate_random_text(length=10000)
+    # print(random_text)
     
-    msg = Message(TEST_MESSAGE + TEST_MESSAGE_2 + TEST_MESSAGE_3)
+    
+    msg = Message(TEST_MESSAGE_3)
     
     tree = HuffmanTree(msg)
     
