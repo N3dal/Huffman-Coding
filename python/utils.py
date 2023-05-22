@@ -216,52 +216,6 @@ dpJo7y0Xkc0G83P
 """ * 10
 
 
-class Node:
-    """
-        :ARGS:
-            
-            symbol:str => the symbol it self;
-            
-            frequency:int => the character frequency;
-            
-            left=None => the left leaf or node;
-            
-            right=None => the right leaf or node;
-
-        :INFO:
-            the Node for huffman tree;
-
-    """
-    
-    def __init__(self, symbol:str=None, frequency:int=None, left=None, right=None):
-        
-        self.symbol = symbol
-        self.frequency = frequency
-        self.left = left
-        self.right = right
-        
-        # tree direction, this will be either '0' or '1';
-        self.code = ''
-        
-    def children(self):
-        """
-        :ARGS:
-            None;
-
-        :RETURNS:
-            return Tuple;
-
-        :INFO:
-            return the children for this node;
-        """
-        
-        return (self.left, self.right)
-    
-    def __str__(self):
-        return f"[{self.left}<-({self.symbol}, {self.frequency})->{self.right}]"
-
-    def __repr__(self):
-        return self.__str__()
 
 def clear():
     """
@@ -288,45 +242,4 @@ def clear():
         pass
 
     return None
-
-
-def message_symbols_probability(message: str):
-    """
-        :ARGS:  
-            message:str => the message we want to count symbols probability.
-
-        :RETURNS:
-            return dict contain each char with its probability;
-
-        :INFO:
-            find the probability for each character in a give string;
-    """
-
-    assert isinstance(
-        message, str), f"message must be a str type not {type(message)}"
-
-    symbol_count = len(message)
-
-    return {symbol: (message.count(symbol) / symbol_count) for symbol in set(message)}
-
-
-def message_symbols_frequency(message: str):
-    """
-        :ARGS:  
-            message:str => the message we want to count symbols probability.
-
-        :RETURNS:
-            return dict contain each char with its frequency;
-
-        :INFO:
-            find the frequency for each character in a give string;
-    """
-
-    assert isinstance(
-        message, str), f"message must be a str type not {type(message)}"
-
-    symbol_count = len(message)
-
-    return {symbol: message.count(symbol) for symbol in set(message)}
-
 
